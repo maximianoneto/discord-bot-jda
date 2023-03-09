@@ -3,6 +3,7 @@ package com.discord.bot;
 import com.discord.bot.bot.MusicCommand;
 import com.discord.bot.command.Listener;
 import com.discord.bot.command.UserListener;
+import com.discord.bot.config.Config;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -19,7 +20,7 @@ public class BotApplication {
     private static JDA jda;
     public static void main(String[] args) throws LoginException {
         SpringApplication.run(BotApplication.class, args);
-        String token = "NzA3MzMyNTExNjA4NDcxNTcy.Gi2Brn.LWj_dXb6wFWylaNNy9Qqc_4JJrScv8iVo2heHA";
+        String token = Config.get("token");
 
         jda = JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
